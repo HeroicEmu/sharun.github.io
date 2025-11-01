@@ -14,9 +14,13 @@
                         /* --- FONT VARIABLES --- */
             --font-cabinet-grotesk: 'CabinetGrotesk-Variable', sans-serif; /* NEW FONT VARIABLE */
 
-                        /* Font Weights (NEW) */
-            --font-weight-h1: 900;
-            --font-weight-h2: 600;
+            /* Desktop Sizes */
+            --font-size-h1-desktop: 167px;
+            --font-size-h2-desktop: 48px;
+            
+            /* Mobile Sizes */
+            --font-size-h1-mobile: 70px;
+            --font-size-h2-mobile: 24px;
 
                         /* Font Weights */
             --font-weight-h1: 900;
