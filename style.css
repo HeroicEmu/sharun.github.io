@@ -1,33 +1,125 @@
-        /*
-        * CSS Reset/Normalization (Good practice)
-        */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
+/* 1. Centralized Color Definitions using CSS Variables (Custom Properties) */
+:root {
+    /* Main Page Background (Unchanged) */
+    --color-primary-red: #EF233C; 
+    
+    /* --- NEW NAVIGATION COLORS --- */
+    --color-nav-background: #FFF2E6;    /* Navigation Bar Background */
+    --color-text-main: #0C0F0A;         /* Navigation Link Text Color */
+    --color-separator: #DDB27E;         /* Separator Line & Active Background Color */
+    --color-hover-bg: #FFDFC2;          /* Hover Background Color (used for stroke) */
+    /* --- END NEW NAVIGATION COLORS --- */
+    
+    --color-shadow: rgba(0, 0, 0, 0.25); /* Shadow (Unchanged) */
+}
 
-        /* Example styles for a main container */
-        .container {
-            max-width: 800px;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+/* Setting the requested background color */
+body {
+    background-color: var(--color-primary-red);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--color-text-main); /* Adjusted body text default */
+    min-height: 100vh;
+    margin: 0;
+    padding-bottom: 0; 
+}
 
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
+/* --- Navigation Styles --- */
+.nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0; 
+    z-index: 1000;
+}
 
-        /* Add your specific CSS rules below this line */
+.nav-list {
+    /* CONTAINER STYLES */
+    background-color: var(--color-nav-background); /* New Nav Background */
+    max-width: 650px; 
+    width: 90%; 
+    margin: 0 auto; 
+    
+    /* Rounded top, flat bottom */
+    border-radius: 16px 16px 0 0; 
+    
+    /* UPDATED BORDER/STROKE WEIGHT TO 3PX */
+    border: 3px solid var(--color-hover-bg); 
+    border-bottom: none; /* Prevents border on the bottom edge */
+    
+    /* FLEXBOX AND LAYOUT */
+    display: flex;
+    justify-content: space-around; 
+    list-style: none;
+    padding: 0;
+    height: 55px; 
+    overflow: hidden; 
+}
 
+/* Offset the border width slightly so links align visually inside */
+.nav-list {
+    /* Keep height consistent */
+    height: 55px; 
+}
+
+
+.nav-item {
+    display: flex; 
+    align-items: center; 
+    /* Separator Line Color Update */
+    border-right: 1px solid var(--color-separator); 
+    flex-grow: 1; 
+    flex-basis: 0; /* Ensures all items are exactly the same width */
+    text-align: center;
+}
+
+/* Remove the border from the very last item */
+.nav-item:last-child {
+    border-right: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-text-main); /* New Text Color */
+    /* UPDATED FONT STYLES */
+    font-family: 'Doto', monospace; /* Applying Doto font */
+    font-weight: 900; /* Set to 900 as requested */
+    text-transform: none; /* Removed capitalization */
+    
+    padding: 0; 
+    letter-spacing: 0.5px;
+    
+    /* FONT SIZE ADJUSTMENT */
+    font-size: 0.9rem; 
+    
+    transition: background-color 0.3s;
+    height: 100%; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover State: Background changes, text color remains the same */
+.nav-link:hover {
+    background-color: var(--color-hover-bg); 
+    color: var(--color-text-main); /* Ensure text color does not change */
+}
+
+/* Active State: Background color changes to the separator color */
+.nav-item.active .nav-link {
+    background-color: var(--color-separator); /* DDB27E */
+}
+
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 500px) {
+     .nav-list {
+        border-radius: 12px 12px 0 0; 
+    }
+    .nav-link {
+        /* FONT SIZE ADJUSTMENT FOR MOBILE */
+        font-size: 0.75rem;
+        letter-spacing: 0;
+    }
+}
