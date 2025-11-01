@@ -12,15 +12,18 @@
             --color-shadow: #65441B; /* UPDATED Shadow Color */
 
                         /* --- FONT VARIABLES --- */
-            --font-cabinet-grotesk-extrabold: 'CabinetGrotesk-Extrabold', sans-serif; /* NEW FONT VARIABLE */
+            --font-cabinet-grotesk-extrabold: 'CabinetGrotesk-Extrabold', sans-serif;
+            --font-cabinet-grotesk-bold: 'CabinetGrotesk-Bold', sans-serif;
 
             /* Desktop Sizes */
-            --font-size-h1-desktop: 6rem;
-            --font-size-h2-desktop: 1.6rem;
-            
+            --font-size-h1-desktop: 167px;
+            --font-size-h2-desktop: 48px;
+            --font-size-h3-desktop: 28px; /* NEW H3 SIZE */
+
             /* Mobile Sizes */
             --font-size-h1-mobile: 70px;
             --font-size-h2-mobile: 24px;
+            --font-size-h3-mobile: 18px; /* NEW H3 MOBILE SIZE */
         }
 
         /* Setting the requested background color */
@@ -181,6 +184,20 @@
             line-height: 1;
             margin-bottom: -10px; /* Space between "I'm" and "Sharun" */
             padding: 0;
+        }
+
+                /* --- H3 Styles (NEW) --- */
+        .text-section h3 {
+            font-family: var(--font-cabinet-grotesk-bold);
+            font-size: var(--font-size-h3-desktop);
+            line-height: 1.2;
+            margin: 10px 0 0; /* Space below H1 */
+            padding: 0;
+            color: var(--color-text-main); /* Default text color for non-highlighted spans */
+        }
+        
+        .text-section h3 .highlight {
+            color: var(--color-primary-red); /* Highlight color */
         }
 
         /* --- Navigation Styles (Omitted for brevity, unchanged) --- */
