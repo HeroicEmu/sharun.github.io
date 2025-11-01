@@ -15,8 +15,8 @@
             --font-cabinet-grotesk-extrabold: 'CabinetGrotesk-Extrabold', sans-serif; /* NEW FONT VARIABLE */
 
             /* Desktop Sizes */
-            --font-size-h1-desktop: 5rem;
-            --font-size-h2-desktop: 1rem;
+            --font-size-h1-desktop: 6rem;
+            --font-size-h2-desktop: 1.6rem;
             
             /* Mobile Sizes */
             --font-size-h1-mobile: 70px;
@@ -179,7 +179,7 @@
             font-size: var(--font-size-h2-desktop); 
             font-family: var(--font-cabinet-grotesk-extrabold); /* NOW EXPLICITLY APPLIED */
             line-height: 1;
-            margin-bottom: 5px; /* Space between "I'm" and "Sharun" */
+            margin-bottom: -10px; /* Space between "I'm" and "Sharun" */
             padding: 0;
         }
 
