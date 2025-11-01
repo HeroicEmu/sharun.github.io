@@ -10,6 +10,17 @@
             /* --- END NEW NAVIGATION COLORS --- */
             
             --color-shadow: #65441B; /* UPDATED Shadow Color */
+
+                        /* --- FONT VARIABLES --- */
+            --font-cabinet-grotesk: 'CabinetGrotesk-Variable', sans-serif; /* NEW FONT VARIABLE */
+
+                        /* Font Weights (NEW) */
+            --font-weight-h1: 900;
+            --font-weight-h2: 600;
+
+                        /* Font Weights */
+            --font-weight-h1: 900;
+            --font-weight-h2: 600;
         }
 
         /* Setting the requested background color */
@@ -136,7 +147,7 @@
 
                 /* --- Logo Section Styles (New) --- */
         .logo-section {
-            padding-top: 25px; 
+            padding-top: 45px; 
             padding-bottom: 25px; 
             text-align: center; /* Centers the image */
         }
@@ -144,6 +155,34 @@
         .main-logo {
             max-width: 80px; 
             height: auto;
+        }
+
+                /* --- Text Section Styles (NEW) --- */
+        .text-section {
+            text-align: center;
+            /* font-family is now explicitly applied to h1 and h2 below */
+            /* Push the text down slightly using negative margin on the logo */
+            margin-top: -10px; 
+        }
+
+        .text-section h1 {
+            /* Text for "Sharun" - big and bold */
+            font-size: var(--font-size-h1-desktop); 
+            font-weight: var(--font-weight-h1); /* USING VARIABLE */
+            font-family: var(--font-cabinet-grotesk); /* NOW EXPLICITLY APPLIED */
+            line-height: 1; /* Tighten up line spacing */
+            margin: 0;
+            padding: 0;
+        }
+        
+        .text-section h2 {
+            /* Text for "Hi! I'm" - smaller and lighter */
+            font-size: var(--font-size-h2-desktop); 
+            font-weight: var(--font-weight-h2); /* USING VARIABLE */
+            font-family: var(--font-cabinet-grotesk); /* NOW EXPLICITLY APPLIED */
+            line-height: 1;
+            margin-bottom: 5px; /* Space between "I'm" and "Sharun" */
+            padding: 0;
         }
 
         /* --- Navigation Styles (Omitted for brevity, unchanged) --- */
