@@ -201,12 +201,12 @@
             cursor: pointer;
             text-decoration: none;
             color: var(--color-text-main); 
-            font-family: var(--font-cabinet-grotesk); 
-            font-weight: 900; 
+            font-family: 'Doto', monospace;
+            font-weight: 600; 
+            font-size: 0.9rem;
             text-transform: none; 
             padding: 0; 
             letter-spacing: 0.5px;
-            font-size: 0.9rem; 
             transition: background-color 0.3s;
             height: 100%; 
             width: 100%;
@@ -223,7 +223,7 @@
             background-color: var(--color-separator); 
         }
 
-                .window-overlay {
+        .window-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -233,9 +233,10 @@
             opacity: 0;
             visibility: hidden;
             z-index: 500;
-            
-            display: block;
-            transition: opacity 0.3s ease; /* Smooth transition for overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease; 
         }
 
         .window-overlay.active {
@@ -243,84 +244,51 @@
             visibility: visible;
         }
         
-        /* Window Box (The modal itself) */
-        .window-box {
-            background-color: var(--color-nav-background);
-            max-width: 650px; 
-            width: 80%;
-            height: 80%; 
-            border-radius: 10px;
-            border: 3px solid var(--color-hover-bg); 
-            box-shadow: 0 6px 0 0 var(--color-shadow); 
-            overflow: hidden; 
-            
-            /* CRITICAL FOR DRAGGING */
+
+        .modal-functional-box {
             position: absolute; 
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%); 
-            
             opacity: 0;
             z-index: 510; 
-            transition: opacity 0.3s ease; /* Smooth transition for window */
+            transition: opacity 0.3s ease; 
+            max-width: 650px; 
+            width: 80%;
+            height: 80%; 
+            margin-bottom: 0;
+            height: auto;
+            min-height: 200px;
+            max-height: 90vh;
         }
         
-        .window-overlay.active .window-box {
+        .window-overlay.active .modal-functional-box {
             opacity: 1;
         }
 
-        /* Window Header (Title Bar) - The DRAG HANDLE */
-        .window-header {
-            background-color: var(--color-window-title-bg); 
-            height: 40px; 
-            width: 100%;
-            display: flex;
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 0 8px;
-            box-sizing: border-box;
+        .drag-handle {
+            cursor: grab;
+            user-select: none;
+            touch-action: none;
             border-bottom: 3px solid var(--color-hover-bg); 
-            
-            /* CRITICAL FOR DRAGGING */
-            cursor: grab; /* Indicate the area is draggable */
-            user-select: none; /* Prevent text selection during drag */
-            touch-action: none; /* Helps prevent browser-level scrolling during touch drag */
-        }
-
-        /* Window Title Badge - UPDATED FONT FAMILY AND WEIGHT */
-        .window-title {
-            background-color: var(--color-separator); 
-            height: 30px; 
-            border-radius: 6px; 
-            display: inline-flex;
-            padding: 0 15px; 
-            
-            /* Match .header-left styles */
-            font-family: var(--font-cabinet-grotesk); 
-            font-weight: 600; 
-            
-            font-size: 1rem;
-            color: var(--color-shadow); 
-            justify-content: center;
-            align-items: center;
-            white-space: nowrap;
         }
         
-        /* Close Button (The X) - UPDATED FONT FAMILY AND STYLING */
+        .modal-functional-box .header-left {
+            margin-right: 0;
+            padding: 0 15px;
+        }
+        
         .close-btn {
             background: none;
             border: none;
-            
-            /* Use the bold custom font for a clean 'X' */
-            font-family: var(--font-cabinet-grotesk-bold); 
-            
-            font-size: 1.6rem; /* Slightly larger for visual weight */
-            font-weight: 700;
+            font-family: 'Doto', monospace;
+            font-weight: 600; 
+            font-size: 0.9rem;
             color: var(--color-shadow);
             cursor: pointer;
             width: 30px;
             height: 30px;
-            line-height: 0.85; /* Adjust line height to vertically center the custom font character */
+            line-height: 0.85; 
             padding: 0;
             transition: color 0.2s, background-color 0.2s;
             border-radius: 4px;
@@ -331,12 +299,11 @@
             background-color: rgba(255, 255, 255, 0.5);
         }
         
-        /* Window Content Area */
         .window-content {
             padding: 20px;
             overflow-y: auto; 
-            height: calc(100% - 43px); 
             box-sizing: border-box;
+            height: calc(100% - 43px); 
         }
 
         @media (max-width: 500px) {
